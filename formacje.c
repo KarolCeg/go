@@ -26,3 +26,22 @@ int dwojeoczu(plansza* stol)
     return ile_formacji;
 }
 
+
+int schody(plansza* stol) // symetryczne schody
+ {
+     int ile_formacji = 0;
+    char pionek = stol->gracz_na_ruchu;
+    for(int i = 0 ; i < kolumny * wiersze ; i++)
+    {
+        if(stol->wartosci[i] == pionek)
+        {
+            if (stol->wartosci[i - kolumny - 1] == pionek && stol->wartosci[i - 2 * kolumny - 2] == pionek && stol->wartosci[i - kolumny + 1] == pionek && stol->wartosci[i - 2 * kolumny + 2] == pionek ) ile_formacji++;
+            if (stol->wartosci[i - kolumny + 1] == pionek && stol->wartosci[i - 2 * kolumny + 2] == pionek && stol->wartosci[i + kolumny + 1] == pionek && stol->wartosci[i + 2 * kolumny + 2] == pionek ) ile_formacji++;
+            if (stol->wartosci[i + kolumny - 1] == pionek && stol->wartosci[i + 2 * kolumny - 2] == pionek && stol->wartosci[i + kolumny + 1] == pionek && stol->wartosci[i + 2 * kolumny + 2] == pionek ) ile_formacji++;
+            if (stol->wartosci[i + kolumny + 1] == pionek && stol->wartosci[i + 2 * kolumny + 2] == pionek && stol->wartosci[i - kolumny + 1] == pionek && stol->wartosci[i - 2 * kolumny + 2] == pionek ) ile_formacji++;
+        }
+    }
+    return ile_formacji;
+}
+
+
